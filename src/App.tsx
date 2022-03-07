@@ -12,8 +12,13 @@ const App: FC =()=> {
   const [data, setData] = useState<ComponentData>()
 
   const changeSource = () =>{
-  setAlternate(!alternate)
-   fetchData()
+
+      if(latitude.length > 0 && longitude.length > 0 ){
+      setAlternate(!alternate)
+          fetchData()
+      }else{
+      console.log('You need to provide inputs, before u change source')
+      }
   }
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -97,7 +102,7 @@ const App: FC =()=> {
             />
             <button className='submitForm'>Search</button>
       </form>
-      <button onClick={changeSource}>Change Source</button>
+      <button onClick={changeSource} className='changeSourceBtn'>Change Source</button>
       {data?<WeatherInfo data={data}/>: null}
 
     </div>
