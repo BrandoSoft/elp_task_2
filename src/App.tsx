@@ -56,7 +56,8 @@ const App: FC =()=> {
             const componentData : ComponentData = {
               humidity: res.data.data[0].rh,
               temp: res.data.data[0].temp,
-              title: 'Weatherbit.io'
+              title: 'Weatherbit.io',
+              pressure: res.data.data[0].pres,
               };
               setData(componentData);
               });
@@ -73,6 +74,7 @@ const App: FC =()=> {
               const componentData : ComponentData = {
               humidity: res.data.current.humidity,
               temp: res.data.current.temp,
+              pressure: res.data.current.pressure,
               title: 'Openweathermap.org'
               };
               setData(componentData);

@@ -90,5 +90,6 @@ export interface WeatherbitData {
 export interface ComponentData  {
     temp?: number,
     humidity?: number,
-    title?: string
+    title?: string,
+    pressure?: number
 }

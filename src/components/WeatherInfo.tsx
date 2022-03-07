@@ -11,6 +11,7 @@ const WeatherInfo: FC<WeatherProps> = ({ data }) => {
             <h1 className='weather-info__title'>{data.title}</h1>
             <p className='weather-info__temp'>Temp: {data.temp}&#8451;</p>
             <p className='weather-info__humidity'>Humidity: {data.humidity}%</p>
+            <p className='weather-info__pressure'>Pressure: {data.pressure}hPa</p>
         </div>
     )
 }
