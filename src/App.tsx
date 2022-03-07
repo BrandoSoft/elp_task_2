@@ -13,16 +13,21 @@ const App: FC =()=> {
 
   const changeSource = () =>{
   setAlternate(!alternate)
+   fetchData()
   }
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(latitude.length > 0 && longitude.length > 0 && alternate){
-    console.log(getWeather(longitude, latitude))
-    }
-    if(latitude.length > 0 && longitude.length > 0 && !alternate){
-        console.log(getWeatherAlternate(longitude, latitude))
-        }
+   fetchData()
+  }
+
+  const fetchData = () =>{
+   if(latitude.length > 0 && longitude.length > 0 && alternate){
+      console.log(getWeather(longitude, latitude))
+      }
+      if(latitude.length > 0 && longitude.length > 0 && !alternate){
+          console.log(getWeatherAlternate(longitude, latitude))
+      }
   }
 
   const lonHandler = (e: FormEvent<HTMLInputElement>) => {

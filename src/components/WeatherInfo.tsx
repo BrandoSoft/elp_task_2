@@ -7,10 +7,10 @@ interface WeatherProps {
 
 const WeatherInfo: FC<WeatherProps> = ({ data }) => {
     return(
-        <div>
-            <h1>{data.title}</h1>
-            <p>Temp: {data.temp}&#8451;</p>
-            <p>Humidity: {data.humidity}%</p>
+        <div className='weather-info'>
+            <h1 className='weather-info__title'>{data.title}</h1>
+            <p className='weather-info__temp'>Temp: {data.temp}&#8451;</p>
+            <p className='weather-info__humidity'>Humidity: {data.humidity}%</p>
         </div>
     )
 }
