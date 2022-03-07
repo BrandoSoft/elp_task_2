@@ -22,12 +22,18 @@ const App: FC =()=> {
   }
 
   const fetchData = () =>{
-   if(latitude.length > 0 && longitude.length > 0 && alternate){
-      console.log(getWeather(longitude, latitude))
-      }
-      if(latitude.length > 0 && longitude.length > 0 && !alternate){
-          console.log(getWeatherAlternate(longitude, latitude))
-      }
+       if( /^[\d.-]+$/i.test(latitude) && /^[\d.-]+$/i.test(longitude)) {
+           if((Number(latitude) >= -90 && Number(latitude) <= 90) && (Number(longitude) >= -180 && Number(longitude) <= 180)){
+                 if(latitude.length > 0 && longitude.length > 0 && alternate){
+                             console.log(getWeather(longitude, latitude))
+                 }
+                 if(latitude.length > 0 && longitude.length > 0 && !alternate){
+                     console.log(getWeatherAlternate(longitude, latitude))
+                 }
+           }else{
+           console.log('Inputs are out of range')}
+       }else{
+       console.log('Only numbers Allowed')}
   }
 
   const lonHandler = (e: FormEvent<HTMLInputElement>) => {
@@ -49,7 +55,6 @@ const App: FC =()=> {
               };
               setData(componentData);
               });
-
             return 'Weatherbit.io'
 
     }catch(err){
@@ -67,7 +72,6 @@ const App: FC =()=> {
               };
               setData(componentData);
               });
-
               return 'Openweathermap.org'
 
       }catch(err){
@@ -91,7 +95,7 @@ const App: FC =()=> {
                 value={latitude}
                 onChange={latHandler}
             />
-            <button>Search</button>
+            <button className='submitForm'>Search</button>
       </form>
       <button onClick={changeSource}>Change Source</button>
       {data?<WeatherInfo data={data}/>: null}
